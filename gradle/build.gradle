@@ -4,5 +4,5 @@ task build(type: Copy) {
   from 'src'
   into buildDir
   include '**/*.html'
-  filter(ReplaceTokens, tokens: [username: System.properties['username']])
+  filter(ReplaceTokens, tokens: [username: System.properties['user.name']])
 }
