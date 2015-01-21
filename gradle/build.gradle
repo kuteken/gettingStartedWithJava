@@ -1,3 +1,8 @@
-task hello << {
-  println "Hello, ${System.properties['username']}"
+import org.apache.tools.ant.filters.*
+
+task build(type: Copy) {
+  from 'src'
+  into buildDir
+  include '**/*.html'
+  filter(ReplaceTokens, tokens: [username: System.properties['username']])
 }
